@@ -1,0 +1,16 @@
+name: Github Contribution Snake
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # executa todo dia à meia-noite
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate Snake
+        uses: platane/snk@v1.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
